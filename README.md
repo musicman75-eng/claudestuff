@@ -1,7 +1,15 @@
 # Skill Installation Prototype
 
-A minimal prototype showing how a Claude **skill** is structured and how to
-install it so Claude can discover and load it on demand.
+A prototype showing how a Claude **skill** is structured and how to install it
+so Claude can discover and load it on demand.
+
+The bundled skill is [`prototype`](skills/prototype/SKILL.md) — Emil Kowalski's
+"Prototyping Variants" skill, which builds several genuinely different versions
+of a described UI piece behind a live visual picker so you can flip through them
+and promote a winner. It ships with a sibling [`PICKER.md`](skills/prototype/PICKER.md)
+that specifies the picker chrome verbatim.
+
+> Source: <https://github.com/emilkowalski/skills>
 
 ## Layout
 
@@ -10,7 +18,8 @@ install it so Claude can discover and load it on demand.
 ├── install.sh            # installs skills/ into a Claude skills directory
 ├── skills/
 │   └── prototype/
-│       └── SKILL.md      # the example skill
+│       ├── SKILL.md      # the skill definition (frontmatter + instructions)
+│       └── PICKER.md     # sibling reference file loaded by the skill
 └── README.md
 ```
 
