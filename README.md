@@ -3,23 +3,33 @@
 A prototype showing how a Claude **skill** is structured and how to install it
 so Claude can discover and load it on demand.
 
-The bundled skill is [`prototype`](skills/prototype/SKILL.md) — Emil Kowalski's
-"Prototyping Variants" skill, which builds several genuinely different versions
-of a described UI piece behind a live visual picker so you can flip through them
-and promote a winner. It ships with a sibling [`PICKER.md`](skills/prototype/PICKER.md)
-that specifies the picker chrome verbatim.
+## Bundled skills
 
-> Source: <https://github.com/emilkowalski/skills>
+- [`prototype`](skills/prototype/SKILL.md) — Emil Kowalski's "Prototyping
+  Variants" skill: builds several genuinely different versions of a described UI
+  piece behind a live visual picker so you can flip through them and promote a
+  winner. Ships with a sibling [`PICKER.md`](skills/prototype/PICKER.md) that
+  specifies the picker chrome verbatim.
+  Source: <https://github.com/emilkowalski/skills>
+- [`stop-slop`](skills/stop-slop/SKILL.md) — Hardik Pandya's skill for removing
+  AI writing tells from prose: banned phrases, structural clichés, and a 1–10
+  scoring rubric. Ships with reference files under
+  [`references/`](skills/stop-slop/references) loaded on demand.
+  Source: <https://github.com/hardikpandya/stop-slop>
 
 ## Layout
 
 ```
 .
-├── install.sh            # installs skills/ into a Claude skills directory
+├── install.sh                  # installs skills/ into a Claude skills directory
 ├── skills/
-│   └── prototype/
-│       ├── SKILL.md      # the skill definition (frontmatter + instructions)
-│       └── PICKER.md     # sibling reference file loaded by the skill
+│   ├── prototype/
+│   │   ├── SKILL.md            # skill definition (frontmatter + instructions)
+│   │   └── PICKER.md           # sibling reference file loaded by the skill
+│   └── stop-slop/
+│       ├── SKILL.md            # skill definition
+│       ├── references/         # phrases.md, structures.md, examples.md
+│       └── LICENSE
 └── README.md
 ```
 
@@ -49,6 +59,7 @@ default `~/.claude/skills/`), where Claude discovers it automatically.
 
 # Install a specific skill
 ./install.sh prototype
+./install.sh stop-slop
 
 # Install into a custom location (e.g. a project-local skills dir)
 ./install.sh --target ./.claude/skills prototype
@@ -56,8 +67,9 @@ default `~/.claude/skills/`), where Claude discovers it automatically.
 CLAUDE_SKILLS_DIR=./.claude/skills ./install.sh
 ```
 
-After installing, the `prototype` skill becomes available and loads whenever a
-task matches its description.
+After installing, a skill becomes available and loads whenever a task matches
+its description. Reference files and subdirectories are copied along with the
+skill.
 
 ## Creating a new skill from the prototype
 
