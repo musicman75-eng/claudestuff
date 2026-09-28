@@ -15,3 +15,11 @@ fi
 
 # Pinned to match videos/package.json so renders stay reproducible.
 npx --yes hyperframes@0.8.81 browser ensure >/dev/null
+
+# Student kit: its own pinned HyperFrames (0.7.x) uses a different Chrome build.
+if [ -f "$CLAUDE_PROJECT_DIR/student-kit/package.json" ]; then
+  cd "$CLAUDE_PROJECT_DIR/student-kit"
+  npm install --no-audit --no-fund --silent
+  npx hyperframes browser ensure >/dev/null
+  [ -f .env ] || cp .env.example .env
+fi

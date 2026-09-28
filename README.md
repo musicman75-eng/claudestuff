@@ -46,6 +46,37 @@ npm run dev      # live preview studio (local machine)
 Try a prompt like: *"Using /hyperframes, make a 20-second vertical clip from
 this sermon excerpt with kinetic type in Anton, navy and warm gold."*
 
+## HyperFrames Student Kit (footage editing)
+
+[`student-kit/`](student-kit) is Nate Herk's
+[HyperFrames Student Kit](https://github.com/nateherkai/hyperframes-student-kit)
+(upstream `ec112ff`, MIT plus the kit's use permission in
+`student-kit/licenses/`). Where `videos/` is for building motion graphics from
+scratch, the kit is for editing your own recordings: transcribe, cut dead air
+and retakes, plan the story, then layer motion graphics from its 406-card style
+library.
+
+It is a self-contained workspace with its own `CLAUDE.md` and 15 skills in
+`student-kit/.claude/skills/`, and it pins its own HyperFrames version
+(0.7.109). Work inside `student-kit/` so its instructions and skills apply:
+`/edit-video`, `/short-form-edit`, `/cut-silences`, `/cut-mistakes`,
+`/video-storytelling`, `/motion-showreel`, `/style-library`.
+
+Left out on purpose: the 12 teaching projects and showcase videos (~390 MB of
+footage) and the AI Automation Society brand files, which the kit's license says
+are not licensed for reuse.
+
+```bash
+cd student-kit
+npm test                        # 11 kit tests
+npm run new-video -- my-sermon  # creates video-projects/my-sermon
+```
+
+Transcription uses ElevenLabs by default. Put `ELEVENLABS_API_KEY` in
+`student-kit/.env` (gitignored), or ask for Whisper instead. Everything under
+`student-kit/video-projects/` is gitignored, so footage and renders never land
+in the repo. In a cloud session they disappear when the container is reclaimed.
+
 ## Layout
 
 ```
