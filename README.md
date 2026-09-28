@@ -17,6 +17,35 @@ so Claude can discover and load it on demand.
   [`references/`](skills/stop-slop/references) loaded on demand.
   Source: <https://github.com/hardikpandya/stop-slop>
 
+## HyperFrames (video animation)
+
+[HyperFrames](https://github.com/heygen-com/hyperframes) turns HTML, CSS and
+GSAP animations into rendered MP4 video. It is set up here in three parts:
+
+- **Skills** live in [`.claude/skills/`](.claude/skills) (all 21 published
+  HyperFrames skills, vendored from upstream `f55c0bb`, Apache-2.0). Claude Code
+  loads them automatically in this repo. Start any video request with
+  `/hyperframes`, or go straight to a workflow such as `/motion-graphics`,
+  `/faceless-explainer`, `/talking-head-recut`, `/embedded-captions`,
+  `/music-to-video`, `/slideshow` or `/general-video`.
+- **Project** lives in [`videos/`](videos). `index.html` is the root timeline;
+  scenes go in `videos/compositions/`. A 6-second title card is included as a
+  working example. GSAP and fonts are bundled under `videos/assets/` because the
+  cloud render browser cannot reach CDNs.
+- **Session hook** ([`.claude/hooks/session-start.sh`](.claude/hooks/session-start.sh))
+  installs ffmpeg and the headless Chrome renderer at the start of every
+  Claude Code on the web session.
+
+```bash
+cd videos
+npm run check    # lint + runtime + layout + contrast gate
+npm run render   # writes renders/<name>.mp4
+npm run dev      # live preview studio (local machine)
+```
+
+Try a prompt like: *"Using /hyperframes, make a 20-second vertical clip from
+this sermon excerpt with kinetic type in Anton, navy and warm gold."*
+
 ## Layout
 
 ```
