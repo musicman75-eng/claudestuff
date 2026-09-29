@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: 'Blinker'; font-weight: 300; src: url('assets/fonts/Blinker-300.woff2') format('woff2'); font-display: block; }
+      @font-face { font-family: 'Blinker'; font-weight: 600; src: url('assets/fonts/Blinker-600.woff2') format('woff2'); font-display: block; }
+      @font-face { font-family: 'Blinker'; font-weight: 800; src: url('assets/fonts/Blinker-800.woff2') format('woff2'); font-display: block; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1920px; height: 1080px; overflow: hidden; background: #f4f0e8; }
+      #main { position: relative; width: 1920px; height: 1080px; background: #f4f0e8; font-family: Blinker, sans-serif; color: #1f1d1a; }
+      .scene { position: absolute; inset: 0; }
+      .kicker { position: absolute; left: 140px; top: 120px; font-weight: 600; font-size: 26px; letter-spacing: 0.34em; text-transform: uppercase; color: #6f6a60; }
+      .rule { position: absolute; left: 140px; height: 3px; width: 200px; background: #b08a3e; }
+      .big { position: absolute; left: 132px; font-weight: 800; font-size: 170px; line-height: 0.92; letter-spacing: -0.02em; }
+      .light { font-weight: 300; }
+      .clipbox { position: absolute; background: #cfc9bd; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 28px; letter-spacing: 0.3em; color: #6f6a60; }
+      .cap { position: absolute; left: 140px; bottom: 150px; font-size: 64px; line-height: 1.08; font-weight: 600; max-width: 560px; }
+      .cap .light { display: block; }
+      .ref { position: absolute; left: 140px; bottom: 100px; font-weight: 600; font-size: 22px; letter-spacing: 0.3em; text-transform: uppercase; color: #6f6a60; }
+    </style>
+  </head>
+  <body>
+    <div id="main" data-composition-id="main" data-start="0" data-duration="6" data-width="1920" data-height="1080">
+      <div id="s1" class="scene clip" data-start="0" data-duration="3" data-track-index="0">
+        <div class="kicker">Foundation Night</div>
+        <div class="rule" style="top: 176px"></div>
+        <div class="big" style="top: 520px">Built on<br /><span class="light">the foundation.</span></div>
+      </div>
+      <div id="s2" class="scene clip" data-start="3" data-duration="3" data-track-index="0">
+        <div class="clipbox" style="left: 780px; top: 90px; width: 1000px; height: 900px">VIDEO CLIP</div>
+        <div class="kicker">Ephesians 2</div>
+        <div class="cap">You are no longer strangers.<span class="light">You are being built together.</span></div>
+        <div class="rule" style="bottom: 118px"></div>
+      </div>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#s1 .big", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 0.2);
+      tl.fromTo("#s2 .cap", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 3.2);
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
