@@ -4,7 +4,7 @@
 > on the web cannot reach CDNs (jsDelivr, Google Fonts). Load GSAP from
 > `assets/vendor/gsap.min.js` and declare fonts with `@font-face` pointing at
 > `assets/fonts/*.woff2` inside the composition file that uses them. Bundled today:
-> Anton, Inter Medium. Add new fonts or libraries the same way (fetch the file, commit it).
+> Anton (legacy, do not use in new work), Inter Medium. Add new fonts or libraries the same way (fetch the file, commit it).
 > Asset paths are root-relative (`assets/...`), never `../assets/...`.
 
 ## Skills — USE THESE FIRST

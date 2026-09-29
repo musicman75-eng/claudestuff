@@ -44,7 +44,7 @@ npm run dev      # live preview studio (local machine)
 ```
 
 Try a prompt like: *"Using /hyperframes, make a 20-second vertical clip from
-this sermon excerpt with kinetic type in Anton, navy and warm gold."*
+this sermon excerpt with kinetic type, navy and warm gold."*
 
 ## HyperFrames Student Kit (footage editing)
 
