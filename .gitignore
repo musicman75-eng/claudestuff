@@ -1,2 +1,7 @@
 # Local test artifacts
 .tmp-skills-test/
+
+# HyperFrames render output and caches
+videos/renders/
+videos/.hyperframes/
+node_modules/

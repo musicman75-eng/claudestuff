@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: 'Anton'; src: url('assets/fonts/Anton-Regular.woff2') format('woff2'); font-display: block; }
+        @font-face { font-family: 'Inter'; font-weight: 500; src: url('assets/fonts/Inter-Medium.woff2') format('woff2'); font-display: block; }
+        #root {
+          position: absolute; inset: 0;
+          display: flex; flex-direction: column; justify-content: center;
+          padding: 0 200px;
+        }
+        .line {
+          font-family: Anton, sans-serif;
+          font-size: 180px; line-height: 1; letter-spacing: 0.01em;
+          text-transform: uppercase; color: #f2eee6;
+        }
+        .line.quiet { color: #c9a45c; }
+        #rule { width: 0; height: 4px; background: #c9a45c; margin: 56px 0 40px; }
+        #kicker {
+          font-family: Inter, sans-serif; font-weight: 500;
+          font-size: 30px; letter-spacing: 0.32em; text-transform: uppercase;
+          color: #8a8f98;
+        }
+      </style>
+
+      <div id="root" data-composition-id="title-card" data-width="1920" data-height="1080">
+        <div id="l1" class="line">Applause is loud.</div>
+        <div id="l2" class="line quiet">Assignment is quiet.</div>
+        <div id="rule"></div>
+        <div id="kicker">Richie Allen</div>
+      </div>
+
+      <script>
+        const tl = gsap.timeline({ paused: true });
+        tl.fromTo("#l1", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }, 0.3)
+          .fromTo("#l2", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }, 1.6)
+          .to("#rule", { width: 240, duration: 0.8, ease: "power2.inOut" }, 2.7)
+          .fromTo("#kicker", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 3.2)
+          .to("#root", { opacity: 0, duration: 0.6, ease: "power2.in" }, 5.4);
+        window.__timelines["title-card"] = tl;
+      </script>
+    </template>
+  </body>
+</html>
